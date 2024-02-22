@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Domain Generalization using Large Pre-Trained Models with Mixture-of-Adapters">
+  <meta name="keywords" content="Diffusion, Matching">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Domain Generalization using Large Pre-Trained Models with Mixture-of-Adapters</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="section1_Title">
+  <div class="sec1-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Domain Generalization using Large Pre-Trained Models with Mixture-of-Adapters</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://gseonglee.github.io/">Gyuseong Lee</a>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=7cyLEQ0AAAAJ&hl=ko">Wooseok Jang</a>,</span>
+            <span class="author-block">
+              <a href="https://github.com/jinlovespho">Jin Hyeon Kim</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=TNhL4AoAAAAJ&hl=ko">Jaewoo Jung</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://cvlab.korea.ac.kr/members/faculty">Seungryong Kim</a>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Korea University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.11031v1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            
+              <span class="link-block">
+                <a href="https://github.com/KU-CVLAB/DiffMatch"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section class="section2_Body1">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div style="display: flex; justify-content: center;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin-right: 3px;">
+                <img src="static/images/src_1.png" alt="Source Image" style="width:100%;"/>
+                <img src="static/images/src_2.png" alt="Source Image" style="width:100%;"/>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin-right: 3px;">
+                <img src="static/images/trg_1.png" alt="Target Image" style="width:100%;"/>
+                <img src="static/images/trg_2.png" alt="Target Image" style="width:100%;"/>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin-right: 3px;">
+                <img src="static/images/vis_1.gif" alt="Diff Match Image" style="width:100%;"/>
+                <img src="static/images/vis_2.gif" alt="Diff Match Image" style="width:100%;"/>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                <img src="static/images/warped_1.png" alt="GT Image" style="width:100%;"/>
+                <img src="static/images/warped_2.png" alt="GT Image" style="width:100%;"/>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <div style="flex: 1; display: flex; justify-content: center; margin-right: 3px;">
+                <span style="text-align: center;">Source</span>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: center; margin-right: 3px;">
+                <span style="text-align: center;">Target</span>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: center; margin-right: 3px;">
+                <span style="text-align: center;">DiffMatch</span>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: center;">
+                <span style="text-align: center;">GT</span>
+            </div>
+        </div>
+        <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Visualization of the reverse diffusion process for dense correspondence:</strong> (from left to right) source and target images, warped source images by estimated correspondences as evolving time steps, and ground-truth. The source image is progressively warped into the target image through an iterative denoising process.
+            </p>
+        </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img width="100%" src="static/dg_images/fig2.png"> <br>
+          <div style="display: flex; justify-content: center; text-align: center; margin-bottom: 5px;"> 
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Visualizing the effectiveness of the proposed DiffMatch:</strong> (a) source images, (b) target images, and warped source images using estimated correspondences by (c-d) state-of-the-art approaches, (e) our DiffMatch, and (f) ground-truth. Compared to previous methods that discriminatively estimate correspondences, our diffusion-based generative framework effectively learns the matching field manifold, resulting in better estimating correspondences particularly at textureless regions, repetitive patterns, and large displacements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+</section>
+
+
+<section class="section3_Body2">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 15px;">
+            Learning a robust vision model despite large distribution shift is essential for model deployment in real-world settings. Especially, domain generalization (DG) algorithm aims to maintain the performance of a trained model on different distributions which were not seen during training. One of the most effective methods has been leveraging the already learned rich knowledge of large pretrained models. However, naively fine-tuning large models to DG tasks is often practically infeasible due to memory limitations, extensive time requirements for training, and the risk of learned knowledge deterioration. Recently, parameter-efficient fine-tuning (PEFT) methods have been proposed to reduce the high computational cost during training and efficiently adapt large models to downstream tasks. In this work, for the first time, we find that the use of adapters in PEFT methods not only reduce high computational cost during training but also serve as an effective regularizer for DG tasks. Surprisingly, a naive adapter implementation for large models achieve superior performance on common datasets. However, in situations of large distribution shifts, additional factors such as optimal amount of regularization due to the strength of distribution shifts should be considered for a sophisticated adapter implementation. To address this, we propose a mixture-of-expert based adapter fine-tuning method, dubbed as mixture-of-adapters (MoA). Specifically, we employ multiple adapters that have varying capacities, and by using learnable routers, we allocate each token to a proper adapter. By using both PEFT and MoA methods, we effectively alleviate the performance deterioration caused by distribution shifts and achieve state-of-the-art performance on diverse DG benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Framework</h2>
+          <img width="100%" src="static/images/diffmatch_overall.png"> <br>
+          <div style="display: flex; justify-content: center; text-align: center; margin-bottom: 5px;">
+            
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Overall network architecture of DiffMatch.</strong> Given source and target images, our conditional diffusion-based network estimates the dense correspondence between the two images. We leverage two conditions: the initial correspondence and the local matching cost, which finds long-range matching and embeds local pixel-wise interactions, respectively.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <br>
+
+    
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Matching Results</h2>
+          <img style="max-width: 100%;" src="static/images/hpatches.png">
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Qualitative results on HPatches:</strong> the source images are warped to the target images using predicted correspondences.
+            </p>
+          </div>
+       
+          <img style="max-width: 100%;" src="static/images/eth3d.png">
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Qualitative results on ETH3D:</strong> the source images are warped to the target images using predicted correspondences.
+            </p>
+          </div>
+
+          <img style="max-width: 100%;" src="static/dg_images/fig7.png">
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Qualitative results on HPatches using corruptions in ImageNet-C:</strong> the source images are warped to the target images using predicted correspondences.
+            </p>
+          </div>
+
+          <img style="max-width: 100%;" src="static/images/eth3d_perturb-1.png">
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Qualitative results on ETH3D using corruptions in ImageNet-C:</strong> the source images are warped to the target images using predicted correspondences.
+                 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</section>
+
+<section class="section4_Body3" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lee2023domain,
+      title={Domain Generalization Using Large Pretrained Models with Mixture-of-Adapters},
+      author={Lee, Gyuseong and Jang, Wooseok and Kim, Jin Hyeon and Jung, Jaewoo and Kim, Seungryong},
+      journal={arXiv preprint arXiv:2310.11031},
+      year={2023}
+    }
+</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/list/cs/new">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/KU-CVLAB/DiffMatch" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://ku-cvlab.github.io/DiffMatch/">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
