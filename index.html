@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({            
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}            
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
   <meta charset="utf-8">
   <meta name="description"
         content="Domain Generalization using Large Pre-Trained Models with Mixture-of-Adapters">
@@ -65,7 +72,7 @@
               </span>
             
               <span class="link-block">
-                <a href="https://github.com/KU-CVLAB/DiffMatch"
+                <a href="https://github.com/KU-CVLAB/MoA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -83,58 +90,49 @@
 
  <section class="section2_Body1">
   <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img width="100%" src="static/dg_images/fig2.png"> <br>
+        <div style="display: flex; justify-content: center; text-align: center; margin-bottom: 5px;"> 
+        <div class="content has-text-justified">
+          <p style="font-size: 15px;">
+            <strong>Loss surface visualization</strong> Flatness comparison of loss surfaces from models trained with (a) full fine-tuning,
+            (b) LoRA, (c) KAdaptation, and (d) KAdaptation with Mixture-of-Adapter (ours)(denoted as KMoA) on
+            PACS dataset. All visualizations are computed from test environment 0 (TE0)(Art) domain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="hero-body">
         <div style="display: flex; justify-content: center;">
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin-right: 3px;">
-                <img src="static/images/src_1.png" alt="Source Image" style="width:100%;"/>
-                <img src="static/images/src_2.png" alt="Source Image" style="width:100%;"/>
+                <img src="static/dg_images/fig5_1.png" alt="Source Image" style="width:100%;"/>
             </div>
             <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin-right: 3px;">
-                <img src="static/images/trg_1.png" alt="Target Image" style="width:100%;"/>
-                <img src="static/images/trg_2.png" alt="Target Image" style="width:100%;"/>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin-right: 3px;">
-                <img src="static/images/vis_1.gif" alt="Diff Match Image" style="width:100%;"/>
-                <img src="static/images/vis_2.gif" alt="Diff Match Image" style="width:100%;"/>
-            </div>
-            <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
-                <img src="static/images/warped_1.png" alt="GT Image" style="width:100%;"/>
-                <img src="static/images/warped_2.png" alt="GT Image" style="width:100%;"/>
+                <img src="static/dg_images/fig5_2.png" alt="Target Image" style="width:100%;"/>
             </div>
         </div>
         <div style="display: flex; justify-content: center;">
             <div style="flex: 1; display: flex; justify-content: center; margin-right: 3px;">
-                <span style="text-align: center;">Source</span>
+                <span style="text-align: center;">Location 100 (class dog)</span>
             </div>
             <div style="flex: 1; display: flex; justify-content: center; margin-right: 3px;">
-                <span style="text-align: center;">Target</span>
-            </div>
-            <div style="flex: 1; display: flex; justify-content: center; margin-right: 3px;">
-                <span style="text-align: center;">DiffMatch</span>
-            </div>
-            <div style="flex: 1; display: flex; justify-content: center;">
-                <span style="text-align: center;">GT</span>
+                <span style="text-align: center;">Location 38 (class cat)</span>
             </div>
         </div>
         <div class="content has-text-justified">
             <p style="font-size: 15px;">
-              <strong>Visualization:</strong> (from left to right) source and target images, warped source images by estimated correspondences as evolving time steps, and ground-truth. The source image is progressively warped into the target image through an iterative denoising process.
+              <strong>Visualizations of routed indices for each patch in the TerraIncognita dataset.</strong> The left column displays the original image, while in the right column, we indicate where each
+              patch is routed. The upper and lower images were taken at the same location but different
+              times, therefore they share the same background but feature different objects (dog and cat) in terms
+              of shape and location.
             </p>
         </div>
     </div>
 
-    <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <img width="100%" src="static/dg_images/fig2.png"> <br>
-          <div style="display: flex; justify-content: center; text-align: center; margin-bottom: 5px;"> 
-          <div class="content has-text-justified">
-            <p style="font-size: 15px;">
-              <strong>Visualizing the effectiveness of the proposed DiffMatch:</strong> (a) source images, (b) target images, and warped source images using estimated correspondences by (c-d) state-of-the-art approaches, (e) our DiffMatch, and (f) ground-truth. Compared to previous methods that discriminatively estimate correspondences, our diffusion-based generative framework effectively learns the matching field manifold, resulting in better estimating correspondences particularly at textureless regions, repetitive patterns, and large displacements.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>  
+      
   </div>
 </section>
 
@@ -156,12 +154,16 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Framework</h2>
-          <img width="100%" src="static/images/diffmatch_overall.png"> <br>
+          <img width="100%" src="static/dg_images/fig4.png"> <br>
           <div style="display: flex; justify-content: center; text-align: center; margin-bottom: 5px;">
             
           <div class="content has-text-justified">
             <p style="font-size: 15px;">
-              <strong>Overall network architecture of DiffMatch.</strong> Given source and target images, our conditional diffusion-based network estimates the dense correspondence between the two images. We leverage two conditions: the initial correspondence and the local matching cost, which finds long-range matching and embeds local pixel-wise interactions, respectively.
+              <strong>Adapter PEFT method(left) and our Mixture-of-Adapter method(right).</strong> $W_{0}$ , $X_{in}$ , and $X_{out}$
+              denotes original pretrained weight, input, and output tokens in multi-head self-attention
+              (MHSA). Adapter can represent any adapter-based PEFT method, such as LoRA,
+              Compacter, KAdaption, etc. Additionally, Router can be a linear or cosine router
+              commonly used in Mixture-of-Expert methods.
             </p>
           </div>
         </div>
@@ -173,41 +175,50 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Matching Results</h2>
-          <img style="max-width: 100%;" src="static/images/hpatches.png">
+          <h2 class="title is-3">Quantitive Results</h2>
+          <img style="max-width: 100%;" src="static/tables/table2.png">
           <div class="content has-text-justified">
             <p style="font-size: 15px;">
-              <strong>Qualitative results on HPatches:</strong> the source images are warped to the target images using predicted correspondences.
-            </p>
-          </div>
-       
-          <img style="max-width: 100%;" src="static/images/eth3d.png">
-          <div class="content has-text-justified">
-            <p style="font-size: 15px;">
-              <strong>Qualitative results on ETH3D:</strong> the source images are warped to the target images using predicted correspondences.
+              <strong>Overall Results.</strong> Quantitative evaluation on domain generalization datasets with Mixture-of-Adapter
+              (MoA) methods. Results with ensemble methods and ours are highlighted in gray and blue. For more details refer to our original paper.
             </p>
           </div>
 
-          <img style="max-width: 100%;" src="static/dg_images/fig7.png">
-          <div class="content has-text-justified">
-            <p style="font-size: 15px;">
-              <strong>Qualitative results on HPatches using corruptions in ImageNet-C:</strong> the source images are warped to the target images using predicted correspondences.
-            </p>
-          </div>
-
-          <img style="max-width: 100%;" src="static/images/eth3d_perturb-1.png">
-          <div class="content has-text-justified">
-            <p style="font-size: 15px;">
-              <strong>Qualitative results on ETH3D using corruptions in ImageNet-C:</strong> the source images are warped to the target images using predicted correspondences.
-                 
             </p>
           </div>
         </div>
       </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Qualitive Results</h2>
+          <img style="max-width: 100%;" src="static/dg_images/fig9.png">
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Visualizations of routed indices of each patch.</strong> We show a total of seven classes in
+              PACS dataset, with one class per row in the order of ‘Guitar’, ‘Horse’, ‘House’, ‘Person’.
+              Also, in each column, the same domains are located in the order of ‘Art Painting’, ‘Cartoon’,
+              ‘Photo’, and ‘Sketch’.
+            </p>
+          </div>
+          <img style="max-width: 100%;" src="static/dg_images/fig7.png">
+          <div class="content has-text-justified">
+            <p style="font-size: 15px;">
+              <strong>Loss surface visualization</strong> Additional flatness comparison of loss surfaces trained with 
+              (a) full fine-tuning, (b) LoRA, (c) KAdaptation, and (d) KAdaptation with Mixture-of-Adapter (ours)
+              on PACS dataset. The four test environments in PACS are denoted as TE0, TE1, TE2, TE3.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
+
+    
+
     <br>
     <br>
-  </div>
+    </div>
 </section>
 
 <section class="section4_Body3" id="BibTeX">
@@ -230,7 +241,7 @@
          href="https://arxiv.org/list/cs/new">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/KU-CVLAB/DiffMatch" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/KU-CVLAB/MoA" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -244,7 +255,7 @@
           </p>
           <p>
             This means you are free to borrow the <a
-              href="https://ku-cvlab.github.io/DiffMatch/">source code</a> of this website,
+              href="https://github.com/KU-CVLAB/MoA">source code</a> of this website,
             we just ask that you link back to this page in the footer.
             Please remember to remove the analytics code included in the header of the website which
             you do not want on your website.
