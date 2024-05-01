@@ -1,0 +1,56 @@
+# Train outputs
+train_output
+sweep_output
+
+
+# Not used
+sweep.py
+
+# Shell file
+*.sh
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.so
+*.egg
+*.egg-info
+dist
+build
+*.tar.gz
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode
+
+# Datasets and other large files (you may want to adjust this to your needs)
+*.csv
+*.tsv
+*.zip
+*.tar.gz
+*.h5
+
+# Environment and configuration files
+.env
+.venv
+*.env
+config
+*.cfg
+*.config
+
+# Logs
+logs
+*.log
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
