@@ -2,6 +2,11 @@
 
 [Paper](https://arxiv.org/abs/2310.11031) | [Project Page](https://ku-cvlab.github.io/MoA/)
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/domain-generalization-using-large-pretrained/domain-generalization-on-domainnet)](https://paperswithcode.com/sota/domain-generalization-on-domainnet?p=domain-generalization-using-large-pretrained)\
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/domain-generalization-using-large-pretrained/domain-generalization-on-vlcs)](https://paperswithcode.com/sota/domain-generalization-on-vlcs?p=domain-generalization-using-large-pretrained)\
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/domain-generalization-using-large-pretrained/domain-generalization-on-pacs-2)](https://paperswithcode.com/sota/domain-generalization-on-pacs-2?p=domain-generalization-using-large-pretrained)\
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/domain-generalization-using-large-pretrained/domain-generalization-on-office-home)](https://paperswithcode.com/sota/domain-generalization-on-office-home?p=domain-generalization-using-large-pretrained)\
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/domain-generalization-using-large-pretrained/domain-generalization-on-terraincognita)](https://paperswithcode.com/sota/domain-generalization-on-terraincognita?p=domain-generalization-using-large-pretrained)
 
 ### Prerequisites 
 
