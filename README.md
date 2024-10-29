@@ -1,6 +1,6 @@
 # Domain Generalization Using Large Pretrained Models with Mixture-of-Adapters (WACV 2025)
 
-by [Gyuseong Lee](https://github.com/sunovivid)\*, [Wooseok Jang](https://github.com/woo1726)\*, Jin Hyeon Kim, [Jaewoo Jung](https://crepejung00.github.io), [Seungryong Kim](https://cvlab.kaist.ac.kr)<sup>†</sup>
+by [Gyuseong Lee](https://github.com/sunovivid)\*, [Wooseok Jang](https://github.com/woo1726)\*, [Jin Hyeon Kim](https://github.com/jinlovespho), [Jaewoo Jung](https://crepejung00.github.io), [Seungryong Kim](https://cvlab.kaist.ac.kr)<sup>†</sup>
 
 [Paper](https://arxiv.org/abs/2310.11031) | [Project Page](https://ku-cvlab.github.io/MoA/)
 
